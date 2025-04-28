@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download the best undetected GTA V mod menu for PC. Enjoy hacks, money drops, teleport, godmode, and more!">
+    <title>GTA V Mod Menu – The Ultimate Cheat Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Color scheme variables based on selection */
+        :root {
+            
+            /* Default Cyberpunk Blue/Pink */
+            --primary-color: #00a3ff;
+            --primary-light: #6fc3ff;
+            --primary-dark: #0077cc;
+            --accent-color: #ff00aa;
+            --accent-light: #ff66cc;
+            --accent-dark: #cc0088;
+            --bg-color: #0c0c14;
+            --bg-darker: #070711;
+            --bg-lighter: #1a1a29;
+            --text-color: #e0e0f0;
+            --text-muted: #a0a0b0;
+            --highlight-color: #00ffff;
+            --shadow-color: rgba(0, 163, 255, 0.2);
+        }
+        
+        /* Disable text selection */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* Reset button styles to remove default appearance */
+        button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            font: inherit;
+            color: inherit;
+            outline: none;
+        }
+        
+        /* Navigation button styling */
+        .nav-link, .footer-link {
+            background: transparent;
+            color: var(--text-color);
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .footer-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link::after, .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after, .footer-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Custom download handling to prevent hover tooltip */
+        .js-download-link {
+            cursor: pointer;
+        }
+        
+        /* Glitch effect animations */
+        @keyframes glitchText {
+            0% {
+                text-shadow: -1px 0 var(--primary-color), 1px 1px var(--secondary-color);
+                transform: translate(0);
+            }
+            25% {
+                text-shadow: -1px 0 var(--secondary-color), 1px 1px var(--primary-color);
+                transform: translate(0.5px, 0.5px);
+            }
+            50% {
+                text-shadow: -0.5px 0 var(--primary-color), 0.5px 1px var(--accent-color);
+                transform: translate(-0.5px, 0px);
+            }
+            75% {
+                text-shadow: -1px 0 var(--accent-color), 1px 1px var(--secondary-color);
+                transform: translate(0.5px, -0.5px);
+            }
+            100% {
+                text-shadow: -1px 0 var(--primary-color), 1px 1px var(--secondary-color);
+                transform: translate(0);
+            }
+        }
+        
+        @keyframes scanlines {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 30px;
+            }
+        }
+        
+        @keyframes flicker {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+                opacity: .99;
+            }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+                opacity: 0.4;
+            }
+        }
+        
+        /* Premium Section Styles */
+        .premium-section {
+            background: linear-gradient(to right, rgba(20, 30, 48, 0.95), rgba(36, 59, 85, 0.9));
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premium-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGE4ZWNjIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==');
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        .premium-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .premium-feature-card {
+            background: rgba(21, 32, 53, 0.6);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .premium-feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(255, 165, 0, 0.15);
+        }
+        
+        .premium-feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .premium-feature-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #FFD700;
+            position: relative;
+        }
+        
+        .premium-feature-text {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        /* Reviews Section Styles */
+        .reviews-section {
+            background-color: var(--bg-darker);
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .review-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            border-left-color: var(--accent-color);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-right: 15px;
+        }
+        
+        .reviewer-info {
+            flex: 1;
+        }
+        
+        .reviewer-name {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+        
+        .reviewer-stars {
+            display: flex;
+            align-items: center;
+        }
+        
+        .star {
+            color: #aaa;
+            font-size: 1.2rem;
+            margin-right: 2px;
+        }
+        
+        .star.full, .star.half {
+            color: #FFD700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        .review-text {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            font-style: italic;
+            position: relative;
+        }
+        
+        /* Enable glitch effects on hover */
+        .hero-title:hover, 
+        .section-title:hover,
+        .download-title:hover,
+        .feature-title:hover,
+        .premium-feature-title:hover {
+            position: relative;
+        }
+        
+        .hero-title:hover::before, 
+        .section-title:hover::before,
+        .download-title:hover::before,
+        .feature-title:hover::before,
+        .premium-feature-title:hover::before {
+            content: attr(data-text);
+            position: absolute;
+            left: -2px;
+            top: 0;
+            width: 100%;
+            color: var(--primary-color);
+            background: transparent;
+            clip-path: rect(0, 100%, 100%, 0);
+            text-shadow: 2px 0 var(--secondary-color);
+            z-index: -1;
+            animation: glitchText 0.8s cubic-bezier(.25, .46, .45, .94) both infinite;
+        }
+        
+        .hero-title:hover::after, 
+        .section-title:hover::after,
+        .download-title:hover::after,
+        .feature-title:hover::after,
+        .premium-feature-title:hover::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            top: 0;
+            width: 100%;
+            color: var(--secondary-color);
+            background: transparent;
+            clip-path: rect(0, 100%, 100%, 0);
+            text-shadow: -2px 0 var(--primary-color);
+            z-index: -2;
+            animation: glitchText 0.8s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+        }
+        
+        .hero-btn:hover::after,
+        .download-btn:hover::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%
+            );
+            background-size: 100% 4px;
+            animation: scanlines 0.2s linear infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .feature-card:hover::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(0, 204, 255, 0.2) 50%,
+                transparent 100%
+            );
+            background-size: 200% 100%;
+            animation: scan 1.5s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 15px;
+        }
+        
+        @keyframes scan {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">GTA</div>
+            <div class="nav-links">
+                <button class="nav-link" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth', block: 'start'})">Features</button>
+                <button class="nav-link" onclick="document.getElementById('install').scrollIntoView({behavior: 'smooth', block: 'start'})">Install</button>
+                <button class="nav-link" onclick="document.getElementById('premium').scrollIntoView({behavior: 'smooth', block: 'start'})">Premium</button>
+                <button class="nav-link" onclick="document.getElementById('reviews').scrollIntoView({behavior: 'smooth', block: 'start'})">Reviews</button>
+                <button class="nav-link" onclick="document.getElementById('faq').scrollIntoView({behavior: 'smooth', block: 'start'})">FAQ</button>
+                <button class="nav-link" onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth', block: 'start'})">Download</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('')">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Premium Game Enhancement</p>
+            <h1 class="hero-title" data-text="GTA V Mod Menu – The Ultimate Cheat Tool">GTA V Mod Menu – The Ultimate Cheat Tool</h1>
+            <p class="hero-description">Unlock unlimited possibilities in GTA V with our powerful, undetected mod menu.</p>
+            <button class="hero-btn" onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth', block: 'start'})">Download Now</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title" data-text="Key Features">Key Features</h2>
+                <p class="section-subtitle">Discover what makes our tool the best choice for serious gamers</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Money Drops</h3>
+            <p class="feature-text">Instantly spawn millions of GTA$ for yourself and others</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">🔥</div>
+            <h3 class="feature-title">Teleport</h3>
+            <p class="feature-text">Instantly travel anywhere on the map</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3 class="feature-title">Godmode</h3>
+            <p class="feature-text">Become invincible against bullets, explosions, and police</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3 class="feature-title">Vehicle Spawner</h3>
+            <p class="feature-text">Summon any vehicle instantly</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3 class="feature-title">Custom Skins</h3>
+            <p class="feature-text">Change your character appearance anytime</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3 class="feature-title">Weapon Mods</h3>
+            <p class="feature-text">Get access to powerful and exclusive weapons</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3 class="feature-title">Stealth Money</h3>
+            <p class="feature-text">Earn money safely without getting banned</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">⚔️</div>
+            <h3 class="feature-title">Online Protection</h3>
+            <p class="feature-text">Block kick/crash attempts from other players</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">🔮</div>
+            <h3 class="feature-title">Script Executor</h3>
+            <p class="feature-text">Run custom scripts for unique features</p>
+        </div>
+            <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3 class="feature-title">Unlock Everything</h3>
+            <p class="feature-text">Instantly unlock all achievements and items</p>
+        </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section class="installation-section" id="install">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title" data-text="How To Install">How To Install</h2>
+                <p class="section-subtitle">Quick and easy setup in just a few steps</p>
+            </div>
+            <div class="installation-container no-image">
+                <div class="installation-content">
+                    <ol class="installation-steps">
+                        <li class="step-item"><div class="step-content">Download the GTA V Mod Menu installer from our website</div></li>
+            <li class="step-item"><div class="step-content">Extract the downloaded archive</div></li>
+            <li class="step-item"><div class="step-content">Launch GTA V in Story Mode</div></li>
+            <li class="step-item"><div class="step-content">Run the Mod Menu executable as administrator</div></li>
+            <li class="step-item"><div class="step-content">Press the injected hotkey (usually F5) to open the menu</div></li>
+            <li class="step-item"><div class="step-content">Navigate using your keyboard or controller to enable cheats</div></li>
+                    </ol>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title" data-text="Screenshot Gallery">Screenshot Gallery</h2>
+                <p class="section-subtitle">See the powerful features in action</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery">
+                    <div class="gallery-item">
+                <img src="https://i.imgur.com/ndwRWA7.png" alt="Screenshot">
+                
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/lkmqyNy.png" alt="Screenshot">
+                
+            </div>
+                </div>
+                
+                <div class="gallery-controls">
+                    <div class="gallery-control left-control">&#10094;</div>
+                    <div class="gallery-control right-control">&#10095;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="premium-section" id="premium">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title" data-text="Premium Advantages">Premium Advantages</h2>
+                <p class="section-subtitle">Unlock exclusive capabilities with our premium version</p>
+            </div>
+            <div class="premium-features-grid">
+                <div class="premium-feature-card">
+                <div class="premium-feature-icon">💎</div>
+                <h3 class="premium-feature-title" data-text="Private Build Access">Private Build Access</h3>
+                <p class="premium-feature-text">Get early access to undetected versions</p>
+            </div>
+            <div class="premium-feature-card">
+                <div class="premium-feature-icon">⚔️</div>
+                <h3 class="premium-feature-title" data-text="Priority Support">Priority Support</h3>
+                <p class="premium-feature-text">24/7 support with faster response time</p>
+            </div>
+            <div class="premium-feature-card">
+                <div class="premium-feature-icon">🔮</div>
+                <h3 class="premium-feature-title" data-text="Exclusive Scripts">Exclusive Scripts</h3>
+                <p class="premium-feature-text">Access to premium-only custom scripts</p>
+            </div>
+            <div class="premium-feature-card">
+                <div class="premium-feature-icon">✨</div>
+                <h3 class="premium-feature-title" data-text="Lifetime Updates">Lifetime Updates</h3>
+                <p class="premium-feature-text">Get all future updates without additional cost</p>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title" data-text="User Reviews">User Reviews</h2>
+                <p class="section-subtitle">What our users are saying about us</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">A</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">Alex</div>
+                        <div class="reviewer-stars"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span></div>
+                    </div>
+                </div>
+                <div class="review-text">"Best mod menu ever! Used it for weeks without bans."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">J</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">Jessica</div>
+                        <div class="reviewer-stars"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star empty">☆</span></div>
+                    </div>
+                </div>
+                <div class="review-text">"Works great, but took a while to set up initially."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">M</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">Mark</div>
+                        <div class="reviewer-stars"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span></div>
+                    </div>
+                </div>
+                <div class="review-text">"Money drops are insane, made millions easily."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">R</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">Ryan</div>
+                        <div class="reviewer-stars"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span></div>
+                    </div>
+                </div>
+                <div class="review-text">"Godmode and teleport features are awesome."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">L</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">Lily</div>
+                        <div class="reviewer-stars"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star empty">☆</span></div>
+                    </div>
+                </div>
+                <div class="review-text">"Love it, but would appreciate more frequent updates."</div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title" data-text="Frequently Asked Questions">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find answers to common questions about our software</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                <div class="faq-question">Money Drops</div>
+                <div class="faq-answer">Instantly spawn millions of GTA$ for yourself and others</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Teleport</div>
+                <div class="faq-answer">Instantly travel anywhere on the map</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Godmode</div>
+                <div class="faq-answer">Become invincible against bullets, explosions, and police</div>
+            </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is this safe to use?</div>
+                    <div class="faq-answer">Yes, our software is designed with security as a top priority. We use advanced techniques to ensure your account stays safe and undetected.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Will I get banned for using this?</div>
+                    <div class="faq-answer">Our tool uses sophisticated protection methods that work externally to the game. When used as directed, there is minimal risk to your account.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section" id="download">
+        <div class="container">
+            <div class="download-bg"></div>
+            <h2 class="download-title" data-text="Download Now">Download Now</h2>
+            <p class="download-description">Get instant access to all premium features and start dominating the competition today. Our tool is regularly updated to stay undetected.</p>
+            <button class="download-btn js-download-link" data-url="https://gta-v-mod-menu-pro.github.io/download">Download</button>
+            <div class="download-counter"><span class="counter-number">14,287</span> gamers already downloaded</div>
+        </div>
+    </section>
+
+    
+    <section class="tags-section">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="section-title" data-text="Related Topics">Related Topics</h2>
+            </div>
+            <div class="tags-container">
+                <span class="tag">gta v mod menu</span>
+            <span class="tag">gta 5 hack</span>
+            <span class="tag">gta 5 mod menu free</span>
+            <span class="tag">gta v cheats</span>
+            <span class="tag">gta online money drop</span>
+            <span class="tag">gta v godmode</span>
+            <span class="tag">gta v undetected mod</span>
+            <span class="tag">gta v teleport hack</span>
+            <span class="tag">gta 5 exploit</span>
+            <span class="tag">gta 5 trainer</span>
+            <span class="tag">gta 5 mods</span>
+            <span class="tag">gta v pc cheats</span>
+            <span class="tag">gta v stealth money</span>
+            <span class="tag">free gta mod menu</span>
+            <span class="tag">undetected gta 5 cheat</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">GTA</div>
+                <div class="footer-links">
+                    <button class="footer-link" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth', block: 'start'})">Features</button>
+                    <button class="footer-link" onclick="document.getElementById('install').scrollIntoView({behavior: 'smooth', block: 'start'})">Installation</button>
+                    <button class="footer-link" onclick="document.getElementById('premium').scrollIntoView({behavior: 'smooth', block: 'start'})">Premium</button>
+                    <button class="footer-link" onclick="document.getElementById('reviews').scrollIntoView({behavior: 'smooth', block: 'start'})">Reviews</button>
+                    <button class="footer-link" onclick="document.getElementById('faq').scrollIntoView({behavior: 'smooth', block: 'start'})">FAQ</button>
+                    <button class="footer-link" onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth', block: 'start'})">Download</button>
+                </div>
+                <p class="copyright">Copyright ©2025 All rights reserved | This is made with ♥</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle download button clicks
+        document.querySelectorAll('.js-download-link').forEach(button => {
+            button.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+        });
+    
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoConstrainedView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Gallery navigation
+        const gallery = document.querySelector('.gallery');
+        if (gallery) {
+            const leftControl = document.querySelector('.left-control');
+            const rightControl = document.querySelector('.right-control');
+            
+            if (leftControl && rightControl) {
+                leftControl.addEventListener('click', () => {
+                    gallery.scrollBy({left: -350, behavior: 'smooth'});
+                });
+                
+                rightControl.addEventListener('click', () => {
+                    gallery.scrollBy({left: 350, behavior: 'smooth'});
+                });
+            }
+        }
+
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        if (faqQuestions) {
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = answer.style.maxHeight;
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.maxHeight = null;
+                    });
+                    
+                    // Toggle the clicked answer
+                    if (!isOpen) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        }
+    });
+
+    // Polyfill for scrollIntoConstrainedView
+    if (!Element.prototype.scrollIntoConstrainedView) {
+        Element.prototype.scrollIntoConstrainedView = function(options) {
+            // Simple implementation to offset for fixed header
+            window.scrollTo({
+                top: this.getBoundingClientRect().top + window.pageYOffset - 80, // 80px for header
+                behavior: options?.behavior || 'auto'
+            });
+        };
+    }
+    </script>
+</body>
+</html>
